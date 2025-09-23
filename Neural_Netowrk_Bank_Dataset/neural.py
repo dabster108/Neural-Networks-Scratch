@@ -60,7 +60,7 @@ def forward(X, W1, b1, W2, b2):
     A1 = relu(Z1)             # activation
 
     # Output layer
-    Z2 = np.dot(A1, W2) + b2  # linear step
-    A2 = sigmoid(Z2)          # activation (probabilities)
+    Z2 = np.dot(A1, W2) + b2  
+    A2 = sigmoid(Z2)          
 
     return Z1, A1, Z2, A2
