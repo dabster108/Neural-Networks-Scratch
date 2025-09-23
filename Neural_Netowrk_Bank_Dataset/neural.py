@@ -56,8 +56,8 @@ def forward(X, W1, b1, W2, b2):
     Returns: Z1, A1, Z2, A2
     """
     # Hidden layer
-    Z1 = np.dot(X, W1) + b1   # linear step
-    A1 = relu(Z1)             # activation
+    Z1 = np.dot(X, W1) + b1  
+    A1 = relu(Z1)             
 
     # Output layer
     Z2 = np.dot(A1, W2) + b2  
