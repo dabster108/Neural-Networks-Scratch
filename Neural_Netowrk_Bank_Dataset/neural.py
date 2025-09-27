@@ -64,3 +64,19 @@ def forward(X, W1, b1, W2, b2):
     A2 = sigmoid(Z2)          
 
     return Z1, A1, Z2, A2
+
+
+
+# --------------------------
+# Step 4: Compute loss
+# --------------------------
+def compute_loss(Y, A2):
+    """
+    Compute Binary Cross-Entropy loss.
+    Y: true labels (m, )
+    A2: predicted probabilities (m, 1)
+    """
+    m = Y.shape[0]  # number of samples
+    # Add a small epsilon (1e-8) to avoid log(0)
+    loss = -np.mean(Y * np.log(A2 + 1e-8) + (1 - Y) * np.log(1 - A2 + 1e-8))
+    return loss
