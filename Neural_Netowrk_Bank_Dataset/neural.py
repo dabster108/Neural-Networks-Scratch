@@ -50,9 +50,9 @@ def compute_loss(Y, A2):
     loss = -np.mean(Y * np.log(A2 + 1e-8) + (1 - Y) * np.log(1 - A2 + 1e-8))
     return loss
 
-# --------------------------
-# Step 5: Backward pass
-# --------------------------
+
+
+
 def backward_pass(X, Y, cache, params, Z1):
     m = X.shape[0]
 
@@ -64,7 +64,7 @@ def backward_pass(X, Y, cache, params, Z1):
     dW2 = (1/m) * np.dot(A1.T, dZ2)
     db2 = (1/m) * np.sum(dZ2, axis=0, keepdims=True)
 
-    # Hidden layer (using ReLU derivative now ✅)
+    # Hidden layer (using ReLU derivative now that Z1 is passed)
     dZ1 = np.dot(dZ2, params["W2"].T) * relu_derivative(Z1)
     dW1 = (1/m) * np.dot(X.T, dZ1)
     db1 = (1/m) * np.sum(dZ1, axis=0, keepdims=True)
@@ -72,9 +72,6 @@ def backward_pass(X, Y, cache, params, Z1):
     grads = {"dW1": dW1, "db1": db1, "dW2": dW2, "db2": db2}
     return grads
 
-# --------------------------
-# Step 6: Update parameters
-# --------------------------
 def update_parameters(params, grads, learning_rate=0.01):
     params["W1"] -= learning_rate * grads["dW1"]
     params["b1"] -= learning_rate * grads["db1"]

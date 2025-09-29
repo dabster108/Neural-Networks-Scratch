@@ -6,7 +6,7 @@ from Neural_Netowrk_Bank_Dataset.neural import initialize_network, forward, comp
 
 # -------------------------
 # Step 1: Train network
-# -------------------------
+# ------------------------- 
 input_size = X_train.shape[1]
 hidden_size = 10
 output_size = 1
