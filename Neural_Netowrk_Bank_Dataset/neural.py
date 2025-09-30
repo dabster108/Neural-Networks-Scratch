@@ -53,9 +53,16 @@ def compute_loss(Y, A2):
 
 
 
-def backward_pass(X, Y, cache, params, Z1):
+def backward_pass(X, Y, cache, params):
+    """Backward propagation.
+
+    Note: main.py calls backward_pass(X, Y, cache, params) and the cache already
+    contains Z1 (pre-activation for hidden layer). Read Z1 from cache here so
+    the caller doesn't need to pass it separately.
+    """
     m = X.shape[0]
 
+    Z1 = cache.get("Z1")
     A1 = cache["A1"]
     A2 = cache["A2"]
 
