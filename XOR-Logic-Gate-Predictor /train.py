@@ -1,6 +1,6 @@
 # train.py
 import numpy as np
-from neural import initialize_network, forward, compute_loss, backward_pass, update_parameters, sigmoid, relu, relu_derivative
+from neural import network, forward, compute_loss, backward_pass, update_parameters, sigmoid, relu, relu_derivative
 
 # XOR input and output
 X = np.array([[0, 0],
@@ -13,7 +13,7 @@ Y = np.array([0, 1, 1, 0])  # XOR output
 input_size = 2
 hidden_size = 4
 output_size = 1
-W1, b1, W2, b2 = initialize_network(input_size, hidden_size, output_size)
+W1, b1, W2, b2 = network(input_size, hidden_size, output_size)
 params = {"W1": W1, "b1": b1, "W2": W2, "b2": b2}
 
 # Training loop
